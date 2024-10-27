@@ -33,6 +33,7 @@ namespace _4RTools.Forms
                     this.txtSpammerDelay.Text = ProfileSingleton.GetCurrent().AHK.AhkDelay.ToString();
                     this.chkNoShift.Checked = ProfileSingleton.GetCurrent().AHK.noShift;
                     this.chkMouseFlick.Checked = ProfileSingleton.GetCurrent().AHK.mouseFlick;
+                    this.checkAbraMode.Checked = ProfileSingleton.GetCurrent().AHK.abraMode;
                     this.DisableControlsIfSpeedBoost();
 
                     Dictionary<string, KeyConfig> ahkClones = new Dictionary<string, KeyConfig>(ProfileSingleton.GetCurrent().AHK.AhkEntries);
@@ -159,6 +160,13 @@ namespace _4RTools.Forms
                 this.chkMouseFlick.Enabled = true;
                 this.chkNoShift.Enabled = true;
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = sender as CheckBox;
+            ProfileSingleton.GetCurrent().AHK.abraMode = chk.Checked;
+            ProfileSingleton.SetConfiguration(ProfileSingleton.GetCurrent().AHK);
         }
     }
 }

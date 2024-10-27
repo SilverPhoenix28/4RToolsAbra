@@ -17,21 +17,24 @@ namespace _4RTools.Model
         public string description { get; set; }
         public string hpAddress { get; set; }
         public string nameAddress { get; set; }
-
+        public string abraAddress { get; set; }
         public int hpAddressPointer { get; set; }
         public int nameAddressPointer { get; set; }
+        public int abraAddressPointer { get; set; }
 
         public ClientDTO() { }
 
-        public ClientDTO(string name, string description, string hpAddress, string nameAddress)
+        public ClientDTO(string name, string description, string hpAddress, string nameAddress, string abraAddress)
         {
             this.name= name;
             this.description = description;
             this.hpAddress = hpAddress;
             this.nameAddress = nameAddress;
+            this.abraAddress = abraAddress;
 
             this.hpAddressPointer = Convert.ToInt32(hpAddress, 16);
             this.nameAddressPointer = Convert.ToInt32(nameAddress, 16);
+            this.abraAddressPointer = Convert.ToInt32(abraAddress, 16);
         }
 
     }
@@ -90,13 +93,15 @@ namespace _4RTools.Model
         public int currentNameAddress { get; set; }
         public int currentHPBaseAddress { get; set; }
         private int statusBufferAddress { get; set; }
+        public int currentAbraAddress { get; set; }
         private int _num = 0;
 
-        public Client(string processName, int currentHPBaseAddress, int currentNameAddress)
+        public Client(string processName, int currentHPBaseAddress, int currentNameAddress, int currentAbraAddress)
         {
             this.currentNameAddress = currentNameAddress;
             this.currentHPBaseAddress = currentHPBaseAddress;
             this.processName = processName;
+            this.currentAbraAddress = currentAbraAddress;
             this.statusBufferAddress = currentHPBaseAddress + 0x474;
         }
 
@@ -106,6 +111,7 @@ namespace _4RTools.Model
             this.currentHPBaseAddress = Convert.ToInt32(dto.hpAddress, 16);
             this.currentNameAddress = Convert.ToInt32(dto.nameAddress, 16);
             this.statusBufferAddress = this.currentHPBaseAddress + 0x474;
+            this.currentAbraAddress = Convert.ToInt32(dto.abraAddress, 16);
         }
 
         public Client(string processName)
@@ -131,12 +137,14 @@ namespace _4RTools.Model
                         this.currentHPBaseAddress = c.currentHPBaseAddress;
                         this.currentNameAddress = c.currentNameAddress;
                         this.statusBufferAddress = c.statusBufferAddress;
+                        this.currentAbraAddress = c.currentAbraAddress;
                     }catch
                     {
                         MessageBox.Show("This client is not supported. Only Spammers and macro will works.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         this.currentHPBaseAddress = 0;
                         this.currentNameAddress = 0;
                         this.statusBufferAddress = 0;
+                        this.currentAbraAddress = 0;
                     }
                    
                     //Do not block spammer for non supported Versions
@@ -209,6 +217,11 @@ namespace _4RTools.Model
             return ReadMemory(this.currentHPBaseAddress + 12);
         }
 
+        public bool IsClassChangeReady()
+        {
+            return ReadMemoryAsString(this.currentAbraAddress) == "SA_CLASSCHANGE";
+        }
+
         public uint CurrentBuffStatusCode(int effectStatusIndex)
         {
             return ReadMemory(this.statusBufferAddress + effectStatusIndex * 4);
@@ -233,7 +246,9 @@ namespace _4RTools.Model
             return ClientListSingleton.GetAll()
                 .Where(c => c.processName == dto.name)
                 .Where(c => c.currentHPBaseAddress == dto.hpAddressPointer)
-                .Where(c => c.currentNameAddress == dto.nameAddressPointer).FirstOrDefault();
+                .Where(c => c.currentNameAddress == dto.nameAddressPointer)
+                .Where(c => c.currentAbraAddress == dto.abraAddressPointer)
+                .FirstOrDefault();
         }
     }
 }

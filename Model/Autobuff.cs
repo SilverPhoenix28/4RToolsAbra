@@ -26,7 +26,7 @@ namespace _4RTools.Model
                  this.thread = AutoBuffThread(roClient);
                 _4RThread.Start(this.thread);
             }
-        }
+        } 
 
         public _4RThread AutoBuffThread(Client c)
         {

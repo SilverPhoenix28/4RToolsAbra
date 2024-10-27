@@ -13,7 +13,7 @@ namespace _4RTools.Model
 
         private static readonly string localServerName = "supported_servers.json";
 
-        public static void AddServer(string hpAddress, string nameAddress, string processName)
+        public static void AddServer(string hpAddress, string nameAddress, string processName, string abraAddress)
         {
             if (!isValid(hpAddress))
             {
@@ -24,7 +24,12 @@ namespace _4RTools.Model
             {
                 throw new ArgumentException("Name Address is Invalid. Please type a valid Hex value.");
             }
-            ClientDTO dto = new ClientDTO(processName, null, hpAddress, nameAddress);
+            
+            if(!isValid(abraAddress))
+            {
+                throw new ArgumentException("Abra Address is Invalid. Please type a valid Hex value.");
+            }
+            ClientDTO dto = new ClientDTO(processName, null, hpAddress, nameAddress, abraAddress);
             ClientListSingleton.AddClient(new Client(dto));
 
             List<ClientDTO> clients = GetLocalClients();

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Windows.Input;
 using System.Drawing;
+using System.Media;
 using _4RTools.Utils;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
@@ -41,6 +42,8 @@ namespace _4RTools.Model
         public bool mouseFlick { get; set; } = false;
         public bool noShift { get; set; } = false;
         public string ahkMode { get; set; } = COMPATIBILITY;
+        
+        public bool abraMode { get; set; } = false;
 
         public AHK()
         {
@@ -144,10 +147,27 @@ namespace _4RTools.Model
 
         private void _AHKNoClick(Client roClient, KeyConfig config, Keys thisk)
         {
-            while (Keyboard.IsKeyDown(config.key))
+            if (abraMode)
             {
-                Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, thisk, 0);
-                Thread.Sleep(this.AhkDelay);
+                while (!roClient.IsClassChangeReady())
+                {
+                    Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, thisk, 0);
+                    Thread.Sleep(this.AhkDelay);
+
+                    if (roClient.IsClassChangeReady())
+                    {
+                        new SoundPlayer(Resources._4RTools.ETCResource.Speech_On).Play();
+                        this.Stop();
+                    }
+                }
+            }
+            else
+            {
+                while (Keyboard.IsKeyDown(config.key))
+                {
+                    Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, thisk, 0);
+                    Thread.Sleep(this.AhkDelay);
+                }
             }
         }
 

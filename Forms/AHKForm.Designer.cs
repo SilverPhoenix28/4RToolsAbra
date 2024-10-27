@@ -81,13 +81,14 @@ namespace _4RTools.Forms
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupAhkConfig = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.chkNoShift = new System.Windows.Forms.CheckBox();
             this.pbUpAndDownArrow = new System.Windows.Forms.PictureBox();
             this.chkMouseFlick = new System.Windows.Forms.CheckBox();
             this.ahkSpeedBoost = new System.Windows.Forms.RadioButton();
             this.ahkCompatibility = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkAbraMode = new System.Windows.Forms.CheckBox();
+            this.chkNoShift = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbDeactivated = new System.Windows.Forms.CheckBox();
             this.cbWithNoClick = new System.Windows.Forms.CheckBox();
@@ -97,8 +98,9 @@ namespace _4RTools.Forms
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupAhkConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUpAndDownArrow)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -534,6 +536,7 @@ namespace _4RTools.Forms
             // 
             this.txtSpammerDelay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtSpammerDelay.Location = new System.Drawing.Point(10, 29);
+            this.txtSpammerDelay.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             this.txtSpammerDelay.Name = "txtSpammerDelay";
             this.txtSpammerDelay.Size = new System.Drawing.Size(59, 23);
             this.txtSpammerDelay.TabIndex = 31;
@@ -610,8 +613,6 @@ namespace _4RTools.Forms
             // 
             // groupAhkConfig
             // 
-            this.groupAhkConfig.Controls.Add(this.pictureBox1);
-            this.groupAhkConfig.Controls.Add(this.chkNoShift);
             this.groupAhkConfig.Controls.Add(this.pbUpAndDownArrow);
             this.groupAhkConfig.Controls.Add(this.chkMouseFlick);
             this.groupAhkConfig.Controls.Add(this.ahkSpeedBoost);
@@ -625,30 +626,8 @@ namespace _4RTools.Forms
             this.groupAhkConfig.TabStop = false;
             this.groupAhkConfig.Text = "AHK Configuration";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::_4RTools.Properties.Resources.shift;
-            this.pictureBox1.Location = new System.Drawing.Point(255, 61);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
-            // 
-            // chkNoShift
-            // 
-            this.chkNoShift.AutoSize = true;
-            this.chkNoShift.Location = new System.Drawing.Point(198, 62);
-            this.chkNoShift.Name = "chkNoShift";
-            this.chkNoShift.Size = new System.Drawing.Size(64, 17);
-            this.chkNoShift.TabIndex = 39;
-            this.chkNoShift.Text = "No Shift";
-            this.chkNoShift.UseVisualStyleBackColor = true;
-            this.chkNoShift.CheckedChanged += new System.EventHandler(this.chkNoShift_CheckedChanged);
-            // 
             // pbUpAndDownArrow
             // 
-            this.pbUpAndDownArrow.Image = global::_4RTools.Properties.Resources.up_and_down_arrow;
             this.pbUpAndDownArrow.Location = new System.Drawing.Point(276, 38);
             this.pbUpAndDownArrow.Name = "pbUpAndDownArrow";
             this.pbUpAndDownArrow.Size = new System.Drawing.Size(16, 16);
@@ -693,12 +672,47 @@ namespace _4RTools.Forms
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(188, 19);
+            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Controls.Add(this.checkAbraMode);
+            this.groupBox4.Controls.Add(this.chkNoShift);
+            this.groupBox4.Location = new System.Drawing.Point(188, 13);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(115, 70);
+            this.groupBox4.Size = new System.Drawing.Size(159, 86);
             this.groupBox4.TabIndex = 33;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Key Config";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_4RTools.Properties.Resources.shift;
+            this.pictureBox1.Location = new System.Drawing.Point(73, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
+            // checkAbraMode
+            // 
+            this.checkAbraMode.AutoSize = true;
+            this.checkAbraMode.Location = new System.Drawing.Point(10, 64);
+            this.checkAbraMode.Name = "checkAbraMode";
+            this.checkAbraMode.Size = new System.Drawing.Size(117, 17);
+            this.checkAbraMode.TabIndex = 40;
+            this.checkAbraMode.Text = "Abracadabra Mode";
+            this.checkAbraMode.UseVisualStyleBackColor = true;
+            this.checkAbraMode.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // chkNoShift
+            // 
+            this.chkNoShift.AutoSize = true;
+            this.chkNoShift.Location = new System.Drawing.Point(10, 45);
+            this.chkNoShift.Name = "chkNoShift";
+            this.chkNoShift.Size = new System.Drawing.Size(64, 17);
+            this.chkNoShift.TabIndex = 39;
+            this.chkNoShift.Text = "No Shift";
+            this.chkNoShift.UseVisualStyleBackColor = true;
+            this.chkNoShift.CheckedChanged += new System.EventHandler(this.chkNoShift_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -809,14 +823,17 @@ namespace _4RTools.Forms
             this.groupBox2.PerformLayout();
             this.groupAhkConfig.ResumeLayout(false);
             this.groupAhkConfig.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUpAndDownArrow)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.CheckBox checkAbraMode;
 
         #endregion
         private System.Windows.Forms.CheckBox chkF9;
@@ -876,10 +893,10 @@ namespace _4RTools.Forms
         private System.Windows.Forms.CheckBox cbWithClick;
         private System.Windows.Forms.RadioButton ahkSpeedBoost;
         private System.Windows.Forms.PictureBox pbUpAndDownArrow;
-        private CheckBox chkNoShift;
+        private System.Windows.Forms.CheckBox chkNoShift;
         private CheckBox chkMouseFlick;
-        private PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private RadioButton ahkCompatibility;
-        private GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }

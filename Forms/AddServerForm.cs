@@ -63,6 +63,7 @@ namespace _4RTools.Forms
             //Addresses start in position 2 (0x...)
             List<char> charsHP = dto.hpAddress.Replace("0x", "").ToCharArray().ToList();
             List<char> charsName = dto.nameAddress.Replace("0x", "").ToCharArray().ToList();
+            List<char> abraSkill = dto.abraAddress.Replace("0x", "").ToCharArray().ToList();
 
             txtHP1.Text = charsHP.ElementAtOrDefault(0).ToString();
             txtHP2.Text = charsHP.ElementAtOrDefault(1).ToString();
@@ -82,6 +83,15 @@ namespace _4RTools.Forms
             txtName6.Text = charsName.ElementAtOrDefault(5).ToString();
             txtName7.Text = charsName.ElementAtOrDefault(6).ToString();
             txtName8.Text = charsName.ElementAtOrDefault(7).ToString();
+            
+            textAbra1.Text = abraSkill.ElementAtOrDefault(0).ToString();
+            textAbra2.Text = abraSkill.ElementAtOrDefault(1).ToString();
+            textAbra3.Text = abraSkill.ElementAtOrDefault(2).ToString();
+            textAbra4.Text = abraSkill.ElementAtOrDefault(3).ToString();
+            textAbra5.Text = abraSkill.ElementAtOrDefault(4).ToString();
+            textAbra6.Text = abraSkill.ElementAtOrDefault(5).ToString();
+            textAbra7.Text = abraSkill.ElementAtOrDefault(6).ToString();
+            textAbra8.Text = abraSkill.ElementAtOrDefault(7).ToString();
 
             processCB.Text = dto.name;
         }
@@ -141,20 +151,21 @@ namespace _4RTools.Forms
         {
             string hpAddress = string.Concat(txtHP1.Text, txtHP2.Text, txtHP3.Text, txtHP4.Text, txtHP5.Text, txtHP6.Text, txtHP7.Text, txtHP8.Text);
             string nameAddress = string.Concat(txtName1.Text, txtName2.Text, txtName3.Text, txtName4.Text, txtName5.Text, txtName6.Text, txtName7.Text, txtName8.Text);
+            string abraAddress = string.Concat(textAbra1.Text, textAbra2.Text, textAbra3.Text, textAbra4.Text, textAbra5.Text, textAbra6.Text, textAbra7.Text, textAbra8.Text);
             try
             {
                 //If don't have client DTO, save a new server. If have DTO, should update given DTO.
                 if(this.dto == null)
                 {
                     //Should create one
-                    LocalServerManager.AddServer(hpAddress, nameAddress, processCB.Text);
+                    LocalServerManager.AddServer(hpAddress, nameAddress, processCB.Text, abraAddress);
                     MessageBox.Show("Server " + processCB.Text + " successfully added !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     //Update Server
                     LocalServerManager.RemoveClient(dto);
-                    LocalServerManager.AddServer(hpAddress, nameAddress, processCB.Text);
+                    LocalServerManager.AddServer(hpAddress, nameAddress, processCB.Text, abraAddress);
                     MessageBox.Show("Server " + processCB.Text + " successfully saved !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

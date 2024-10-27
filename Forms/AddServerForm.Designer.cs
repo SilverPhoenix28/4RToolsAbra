@@ -38,6 +38,16 @@
             this.txtHP6 = new System.Windows.Forms.TextBox();
             this.txtHP5 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textAbra1 = new System.Windows.Forms.TextBox();
+            this.textAbra8 = new System.Windows.Forms.TextBox();
+            this.textAbra2 = new System.Windows.Forms.TextBox();
+            this.textAbra7 = new System.Windows.Forms.TextBox();
+            this.textAbra3 = new System.Windows.Forms.TextBox();
+            this.textAbra6 = new System.Windows.Forms.TextBox();
+            this.textAbra4 = new System.Windows.Forms.TextBox();
+            this.textAbra5 = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.processCB = new System.Windows.Forms.ComboBox();
@@ -122,6 +132,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textAbra1);
+            this.groupBox1.Controls.Add(this.textAbra8);
+            this.groupBox1.Controls.Add(this.textAbra2);
+            this.groupBox1.Controls.Add(this.textAbra7);
+            this.groupBox1.Controls.Add(this.textAbra3);
+            this.groupBox1.Controls.Add(this.textAbra6);
+            this.groupBox1.Controls.Add(this.textAbra4);
+            this.groupBox1.Controls.Add(this.textAbra5);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.processCB);
@@ -147,14 +167,14 @@
             this.groupBox1.Controls.Add(this.txtHP5);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(345, 163);
+            this.groupBox1.Size = new System.Drawing.Size(345, 228);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Server Properties";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(248, 118);
+            this.btnSave.Location = new System.Drawing.Point(248, 174);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 39);
             this.btnSave.TabIndex = 22;
@@ -165,7 +185,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 95);
+            this.label5.Location = new System.Drawing.Point(8, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 21;
@@ -174,7 +194,7 @@
             // processCB
             // 
             this.processCB.FormattingEnabled = true;
-            this.processCB.Location = new System.Drawing.Point(90, 91);
+            this.processCB.Location = new System.Drawing.Point(90, 147);
             this.processCB.Name = "processCB";
             this.processCB.Size = new System.Drawing.Size(241, 21);
             this.processCB.TabIndex = 20;
@@ -185,7 +205,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(87, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 16);
+            this.label3.Size = new System.Drawing.Size(35, 16);
             this.label3.TabIndex = 19;
             this.label3.Text = "0   x";
             // 
@@ -262,13 +282,77 @@
             this.txtName5.TabIndex = 14;
             this.txtName5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // textAbra1
+            // 
+            this.textAbra1.Location = new System.Drawing.Point(127, 85);
+            this.textAbra1.Name = "textAbra1";
+            this.textAbra1.Size = new System.Drawing.Size(20, 20);
+            this.textAbra1.TabIndex = 23;
+            this.textAbra1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textAbra8
+            // 
+            this.textAbra8.Location = new System.Drawing.Point(311, 85);
+            this.textAbra8.Name = "textAbra8";
+            this.textAbra8.Size = new System.Drawing.Size(20, 20);
+            this.textAbra8.TabIndex = 30;
+            this.textAbra8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textAbra2
+            // 
+            this.textAbra2.Location = new System.Drawing.Point(153, 85);
+            this.textAbra2.Name = "textAbra2";
+            this.textAbra2.Size = new System.Drawing.Size(20, 20);
+            this.textAbra2.TabIndex = 24;
+            this.textAbra2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textAbra7
+            // 
+            this.textAbra7.Location = new System.Drawing.Point(285, 85);
+            this.textAbra7.Name = "textAbra7";
+            this.textAbra7.Size = new System.Drawing.Size(20, 20);
+            this.textAbra7.TabIndex = 29;
+            this.textAbra7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textAbra3
+            // 
+            this.textAbra3.Location = new System.Drawing.Point(180, 85);
+            this.textAbra3.Name = "textAbra3";
+            this.textAbra3.Size = new System.Drawing.Size(20, 20);
+            this.textAbra3.TabIndex = 25;
+            this.textAbra3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textAbra6
+            // 
+            this.textAbra6.Location = new System.Drawing.Point(258, 85);
+            this.textAbra6.Name = "textAbra6";
+            this.textAbra6.Size = new System.Drawing.Size(20, 20);
+            this.textAbra6.TabIndex = 28;
+            this.textAbra6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textAbra4
+            // 
+            this.textAbra4.Location = new System.Drawing.Point(206, 85);
+            this.textAbra4.Name = "textAbra4";
+            this.textAbra4.Size = new System.Drawing.Size(20, 20);
+            this.textAbra4.TabIndex = 26;
+            this.textAbra4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textAbra5
+            // 
+            this.textAbra5.Location = new System.Drawing.Point(232, 85);
+            this.textAbra5.Name = "textAbra5";
+            this.textAbra5.Size = new System.Drawing.Size(20, 20);
+            this.textAbra5.TabIndex = 27;
+            this.textAbra5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(87, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 16);
+            this.label2.Size = new System.Drawing.Size(35, 16);
             this.label2.TabIndex = 9;
             this.label2.Text = "0   x";
             // 
@@ -281,11 +365,30 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "HP Address:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(87, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 16);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "0   x";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Abra Address:";
+            // 
             // AddServerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 187);
+            this.ClientSize = new System.Drawing.Size(367, 255);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -326,5 +429,15 @@
         private System.Windows.Forms.TextBox txtName6;
         private System.Windows.Forms.TextBox txtName4;
         private System.Windows.Forms.TextBox txtName5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textAbra1;
+        private System.Windows.Forms.TextBox textAbra8;
+        private System.Windows.Forms.TextBox textAbra2;
+        private System.Windows.Forms.TextBox textAbra7;
+        private System.Windows.Forms.TextBox textAbra3;
+        private System.Windows.Forms.TextBox textAbra6;
+        private System.Windows.Forms.TextBox textAbra4;
+        private System.Windows.Forms.TextBox textAbra5;
     }
 }
